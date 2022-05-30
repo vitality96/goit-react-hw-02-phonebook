@@ -53,11 +53,11 @@ export default class App extends Component {
     const visibleContacts = this.getVisibleContacts();
 
     return (
-      <div className="App">
-        <h1>Phonebook</h1>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+        <h1 style={{color: "white"}}>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
 
-        <h2>Contacts</h2>
+        <h2 style={{color: "white"}}>Contacts</h2>
         <Filter handleChange={this.handleChange} filter={this.state.filter} />
         <ContactList
           contacts={visibleContacts}
