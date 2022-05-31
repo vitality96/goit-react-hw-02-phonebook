@@ -22,7 +22,7 @@ export default ContactList;
 
 
 ContactList.protoType = {
-    onDeleteContact: PropTypes.funс.isRequired,
+    onDeleteContact: PropTypes.func,
     contacts: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
