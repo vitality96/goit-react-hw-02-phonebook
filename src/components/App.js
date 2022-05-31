@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { nanoid } from 'nanoid';
+import s from './App.module.css'
 import ContactForm from "./ContactForm/ContactForm";
 import Filter from "./Filter/Filter";
 import ContactList from "./ContactList/ContactList";
@@ -31,7 +32,7 @@ export default class App extends Component {
     const { contacts } = this.state;
     const newContact = { id: nanoid(), name, number };
     const checkUser = contacts.find(
-      (contact) => contact.name === newContact.name
+      (contact) => contact.name.toLowerCase() === newContact.name.toLowerCase()
     );
 
     checkUser
@@ -53,11 +54,11 @@ export default class App extends Component {
     const visibleContacts = this.getVisibleContacts();
 
     return (
-      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-        <h1 style={{color: "white"}}>Phonebook</h1>
+      <div className={s.container}>
+        <h1 className={s.title}>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
 
-        <h2 style={{color: "white"}}>Contacts</h2>
+        <h2 className={s.title}>Contacts</h2>
         <Filter handleChange={this.handleChange} filter={this.state.filter} />
         <ContactList
           contacts={visibleContacts}
